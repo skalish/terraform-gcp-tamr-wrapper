@@ -20,7 +20,7 @@ locals {
 }
 
 module "iam" {
-  source = "/home/nlaferriere/work/m/terraform/terraform-gcp-tamr-iam"
+  source = "git::git@github.com:Datatamer/terraform-gcp-tamr-iam?ref=v0.1.0"
 
   project_id                = var.project_id
   tamr_service_account      = var.tamr_instance_service_account
@@ -94,4 +94,6 @@ module "tamr_vm" {
   tamr_sql_password       = module.cloud_sql.tamr_password
   # filesystem
   tamr_filesystem_bucket = module.gcs_buckets.tamr_bucket_name
+  # misc
+  labels = var.labels
 }
