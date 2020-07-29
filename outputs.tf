@@ -13,6 +13,11 @@ output "tamr_service_account" {
   description = "service account tamr is using"
 }
 
+output "load_balancer_ip" {
+  value       = module.load_balancer.ip_address
+  description = "The IP assigned to the LB."
+}
+
 # config files
 # NOTE: these are very useful for debugging
 output "tamr_config_file" {
