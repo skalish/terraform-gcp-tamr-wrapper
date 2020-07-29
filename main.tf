@@ -97,3 +97,26 @@ module "tamr_vm" {
   # misc
   labels = var.labels
 }
+
+# load balancer config
+resource "google_compute_ssl_certificate" "tamr" {
+  project     = var.project_id
+  name        = "${var.deployment_name}-cert"
+  private_key = var.tls_private_key
+  certificate = var.tls_certificate
+
+  lifecycle {
+    create_before_destroy = true
+  }
+}
+
+module "load_balancer" {
+  source = "git::git@github.com:Datatamer/terraform-gcp-tamr-load-balancer.git?ref=v1.1.0"
+
+  name                   = var.deployment_name
+  project_id             = var.project_id
+  ssl_certificates       = [google_compute_ssl_certificate.tamr.id]
+  tamr_vm_self_link      = module.tamr_vm.tamr_instance_self_link
+  region                 = var.region
+  allow_source_ip_ranges = var.allow_source_ip_ranges
+}

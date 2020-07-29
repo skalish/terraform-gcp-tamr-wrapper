@@ -38,10 +38,13 @@ This modules creates:
 | Name | Version |
 |------|---------|
 | terraform | >= 0.12 |
+| google | >= 3.29.0 |
 
 ## Providers
 
-No provider.
+| Name | Version |
+|------|---------|
+| google | >= 3.29.0 |
 
 ## Inputs
 
@@ -55,9 +58,12 @@ No provider.
 | tamr\_bigtable\_min\_nodes | Min number of nodes to scale down to | `string` | n/a | yes |
 | tamr\_instance\_image | Image to use for Tamr VM boot disk | `string` | n/a | yes |
 | tamr\_zip\_uri | gcs location to download tamr zip from | `string` | n/a | yes |
+| tls\_certificate | CRT for tls certifacate to attach to load balancer | `string` | n/a | yes |
+| tls\_private\_key | Private key for tls certifacate to attach to load balancer | `string` | n/a | yes |
 | zone | GCP zone to deploy resources into | `string` | n/a | yes |
 | additional\_admin\_users | list of additional entities to give admin permissions to provisioned resources | `list(string)` | `[]` | no |
 | additional\_read\_users | list of additional entities to give read only permissions to provisioned resources | `list(string)` | `[]` | no |
+| allow\_source\_ip\_ranges | IP whitelist for inbound traffic to the LB | `list(string)` | `[]` | no |
 | bucket\_locations | Location for the gcs buckets, default is `US` | `string` | `"US"` | no |
 | force\_destroy | force destroy potentially persistent resources, like bigtable/gcs | `bool` | `false` | no |
 | labels | Labels to attach to created resources | `map(string)` | `{}` | no |
@@ -71,6 +77,7 @@ No provider.
 | Name | Description |
 |------|-------------|
 | instance\_ip | An arbitrary value that changes each time the resource is replaced. |
+| load\_balancer\_ip | The IP assigned to the LB. |
 | tamr\_config\_file | full tamr config file |
 | tamr\_instance\_self\_link | full self link of created tamr vm |
 | tamr\_service\_account | service account tamr is using |
