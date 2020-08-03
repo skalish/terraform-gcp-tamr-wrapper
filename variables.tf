@@ -80,25 +80,6 @@ variable "bucket_locations" {
   description = "Location for the gcs buckets, default is `US`"
   default     = "US"
 }
-#
-# Google Load Balancer
-#
-#
-variable "tls_private_key" {
-  type        = string
-  description = "Private key for tls certifacate to attach to load balancer"
-}
-
-variable "tls_certificate" {
-  type        = string
-  description = "CRT for tls certifacate to attach to load balancer"
-}
-
-variable "allow_source_ip_ranges" {
-  default     = []
-  type        = list(string)
-  description = "IP whitelist for inbound traffic to the LB"
-}
 
 # Misc
 #
