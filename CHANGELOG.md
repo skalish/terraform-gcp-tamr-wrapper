@@ -1,3 +1,6 @@
+# Tamr GCP Wrapper - v0.4.0 - August 18th 2021
+* Plumb through deletion_protection for cloud sql instance
+
 # Tamr GCP Wrapper - v0.2.1 - August 3rd 2020
 * Remove direct invocation of GLB module
 * update docs with more examples

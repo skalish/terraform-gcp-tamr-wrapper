@@ -28,12 +28,14 @@ module "iam" {
 }
 
 module "cloud_sql" {
-  source = "git::git@github.com:Datatamer/terraform-gcp-tamr-cloud-sql.git?ref=v2.1.0"
+  source = "git::git@github.com:Datatamer/terraform-gcp-tamr-cloud-sql.git?ref=v4.6.0"
   name   = var.deployment_name
 
   project_id = var.project_id
   labels     = var.labels
   region     = var.region
+
+  deletion_protection = local.deletion_protection
 
   cloud_sql_viewer_members = local.read_users
   cloud_sql_client_members = local.admin_users
