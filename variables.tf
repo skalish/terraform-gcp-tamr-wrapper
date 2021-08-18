@@ -117,5 +117,5 @@ variable "labels" {
 variable "force_destroy" {
   default     = false
   type        = bool
-  description = "force destroy potentially persistent resources, like bigtable/gcs"
+  description = "force destroy potentially persistent resources, like bigtable/gcs/cloud sql instance"
 }

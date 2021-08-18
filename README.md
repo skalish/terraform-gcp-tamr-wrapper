@@ -60,7 +60,7 @@ No provider.
 | additional\_admin\_users | list of additional entities to give admin permissions to provisioned resources | `list(string)` | `[]` | no |
 | additional\_read\_users | list of additional entities to give read only permissions to provisioned resources | `list(string)` | `[]` | no |
 | bucket\_locations | Location for the gcs buckets, default is `US` | `string` | `"US"` | no |
-| force\_destroy | force destroy potentially persistent resources, like bigtable/gcs | `bool` | `false` | no |
+| force\_destroy | force destroy potentially persistent resources, like bigtable/gcs/cloud sql instance | `bool` | `false` | no |
 | labels | Labels to attach to created resources | `map(string)` | `{}` | no |
 | sql\_disk\_size | size of the disk to use on the tamr sql instance | `number` | `10` | no |
 | sql\_disk\_type | The disk type to use on the cloud SQL instance. should be either PD\_SSD or PD\_STANDARD | `string` | `"PD_SSD"` | no |
