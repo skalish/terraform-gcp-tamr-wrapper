@@ -31,6 +31,8 @@ module "cloud_sql" {
   source = "git::git@github.com:skalish/terraform-gcp-tamr-cloud-sql.git?ref=remove-for-each"
   name   = var.deployment_name
 
+  deletion_protection = local.deletion_protection
+
   project_id = var.project_id
   labels     = var.labels
   region     = var.region
