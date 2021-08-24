@@ -1,5 +1,5 @@
 module "tamr_stack" {
-  source          = "git::git@github.com:Datatamer/terraform-gcp-tamr-vm.git?ref=v0.1.0"
+  source          = "git::git@github.com:Datatamer/terraform-gcp-tamr-wrapper.git?ref=v0.4.1"
   deployment_name = "tamr-dev"
   # tamr VM
   tamr_zip_uri        = "gs://tamr-releases/v2020.015.0/unify.zip"
