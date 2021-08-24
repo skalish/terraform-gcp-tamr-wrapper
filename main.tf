@@ -28,7 +28,7 @@ module "iam" {
 }
 
 module "cloud_sql" {
-  source = "git::git@github.com:skalish/terraform-gcp-tamr-cloud-sql.git?ref=remove-for-each"
+  source = "git::git@github.com:Datatamer/terraform-gcp-tamr-cloud-sql.git?ref=v4.6.1"
   name   = var.deployment_name
 
   deletion_protection = local.deletion_protection
