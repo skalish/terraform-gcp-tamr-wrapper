@@ -28,8 +28,10 @@ module "iam" {
 }
 
 module "cloud_sql" {
-  source = "git::git@github.com:Datatamer/terraform-gcp-tamr-cloud-sql.git?ref=v2.1.0"
+  source = "git::git@github.com:Datatamer/terraform-gcp-tamr-cloud-sql.git?ref=v4.6.1"
   name   = var.deployment_name
+
+  deletion_protection = local.deletion_protection
 
   project_id = var.project_id
   labels     = var.labels
