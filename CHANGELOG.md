@@ -1,3 +1,6 @@
+# Tamr GCP Wrapper - v0.5.2 - November 16th 2021
+* Bump terraform-gcp-tamr-vm to update dataproc configuration
+
 # Tamr GCP Wrapper - v0.5.1 - November 16th 2021
 * Bump terraform-gcp-tamr-iam version to include missing project variable
 
