@@ -73,15 +73,16 @@ module "bigtable" {
 }
 
 module "tamr_vm" {
-  source = "git::git@github.com:Datatamer/terraform-gcp-tamr-vm.git?ref=v0.1.0"
+  source = "git::git@github.com:Datatamer/terraform-gcp-tamr-vm.git?ref=v0.5.0"
   # tamr VM
-  tamr_instance_name            = var.deployment_name
-  tamr_instance_zone            = var.zone
-  tamr_instance_image           = var.tamr_instance_image
-  tamr_instance_service_account = module.iam.service_account_email
-  tamr_instance_subnet          = local.subnetwork
-  tamr_instance_project         = var.project_id
-  tamr_zip_uri                  = var.tamr_zip_uri
+  tamr_instance_name                = var.deployment_name
+  tamr_instance_zone                = var.zone
+  tamr_instance_image               = var.tamr_instance_image
+  tamr_instance_service_account     = module.iam.service_account_email
+  tamr_instance_subnet              = local.subnetwork
+  tamr_instance_project             = var.project_id
+  tamr_zip_uri                      = var.tamr_zip_uri
+  tamr_instance_deletion_protection = local.deletion_protection
   # bigtable config
   tamr_bigtable_instance_id = module.bigtable.bigtable_instance_id
   tamr_bigtable_cluster_id  = module.bigtable.bigtable_cluster_id
