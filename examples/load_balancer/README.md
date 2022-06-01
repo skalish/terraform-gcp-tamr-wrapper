@@ -3,7 +3,7 @@
 
 | Name | Version |
 |------|---------|
-| terraform | >0.12.0 |
+| terraform | >= 1.0.0 |
 | google | ~> 3.29.0 |
 | google-beta | ~> 3.29.0 |
 

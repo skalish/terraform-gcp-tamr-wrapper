@@ -37,8 +37,8 @@ This modules creates:
 
 | Name | Version |
 |------|---------|
-| terraform | >= 0.12 |
-| google | >= 3.29.0 |
+| terraform | >= 1.0.0 |
+| google | >= 4.6.0 |
 
 ## Providers
 
