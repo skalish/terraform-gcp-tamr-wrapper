@@ -64,12 +64,13 @@ variable "sql_disk_type" {
 # Bigtable
 #
 variable "tamr_bigtable_min_nodes" {
-  type        = string
+  type        = number
   description = "Min number of nodes to scale down to"
+  default     = 1
 }
 
 variable "tamr_bigtable_max_nodes" {
-  type        = string
+  type        = number
   description = "Max number of nodes to scale up to"
 }
 #

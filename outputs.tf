@@ -16,16 +16,16 @@ output "tamr_service_account" {
 # config files
 # NOTE: these are very useful for debugging
 output "tamr_config_file" {
-  value       = module.tamr_vm.tamr_config_file
+  value       = module.config.tamr_config_file
   description = "full tamr config file"
 }
 
 output "tmpl_dataproc_config" {
-  value       = module.tamr_vm.tmpl_dataproc_config
+  value       = module.config.tmpl_dataproc_config
   description = "dataproc config"
 }
 
-output "tmpl_statup_script" {
-  value       = module.tamr_vm.tmpl_statup_script
+output "tmpl_startup_script" {
+  value       = module.tamr_vm.tmpl_startup_script
   description = "rendered metadata startup script"
 }

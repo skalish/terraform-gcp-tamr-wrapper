@@ -70,7 +70,7 @@ module "bigtable" {
 }
 
 module "tamr_vm" {
-  source = "git::git@github.com:Datatamer/terraform-gcp-tamr-vm.git?ref=v1.0.0"
+  source = "git::git@github.com:Datatamer/terraform-gcp-tamr-vm.git?ref=v2.0.0"
   # tamr VM
   tamr_instance_name                = var.deployment_name
   tamr_instance_zone                = var.zone
@@ -80,6 +80,23 @@ module "tamr_vm" {
   tamr_instance_project             = var.project_id
   tamr_zip_uri                      = var.tamr_zip_uri
   tamr_instance_deletion_protection = local.deletion_protection
+  # filesystem
+  tamr_filesystem_bucket = module.gcs_buckets.tamr_bucket_name
+  # config
+  tamr_config_file = module.config.tamr_config_file
+  # misc
+  labels = var.labels
+}
+
+module "config" {
+  source = "git::git@github.com:Datatamer/terraform-gcp-tamr-config.git?ref=v1.0.0"
+
+  # tamr VM
+  tamr_instance_zone            = var.zone
+  tamr_instance_subnet          = local.subnetwork
+  tamr_instance_service_account = module.iam.service_account_email
+  tamr_instance_project         = var.project_id
+  tamr_instance_internal_ip     = module.tamr_vm.tamr_instance_internal_ip
   # bigtable config
   tamr_bigtable_instance_id = module.bigtable.bigtable_instance_id
   tamr_bigtable_cluster_id  = module.bigtable.bigtable_cluster_id
@@ -88,12 +105,13 @@ module "tamr_vm" {
   # dataproc
   tamr_dataproc_bucket = module.gcs_buckets.dataproc_bucket_name
   tamr_dataproc_region = var.region
+  # dataproc_cluster_config
+  tamr_dataproc_cluster_subnetwork_uri = local.subnetwork
+  tamr_dataproc_cluster_zone           = var.zone
   # cloud sql
   tamr_cloud_sql_location = var.region
   tamr_cloud_sql_name     = module.cloud_sql.instance_name
   tamr_sql_password       = module.cloud_sql.tamr_password
   # filesystem
   tamr_filesystem_bucket = module.gcs_buckets.tamr_bucket_name
-  # misc
-  labels = var.labels
 }
