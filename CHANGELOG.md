@@ -1,6 +1,12 @@
 # GCP Tamr Wrapper
 
-## 2.0.0 - July 21st 2022
+## v2.0.2 - July 29th 2022
+* update config version to v1.0.1
+
+## v2.0.1 - July 29th 2022
+* update config version
+
+## v2.0.0 - July 21st 2022
 * add config module
 * renamed module output `tmpl_statup_script` to `tmpl_startup_script`
 
