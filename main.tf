@@ -89,7 +89,7 @@ module "tamr_vm" {
 }
 
 module "config" {
-  source = "git::git@github.com:Datatamer/terraform-gcp-tamr-config.git?ref=v1.0.0"
+  source = "git::git@github.com:Datatamer/terraform-gcp-tamr-config.git?ref=v1.1.0"
 
   # tamr VM
   tamr_instance_zone            = var.zone
