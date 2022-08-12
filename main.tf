@@ -20,7 +20,7 @@ locals {
 }
 
 module "iam" {
-  source = "git::git@github.com:Datatamer/terraform-gcp-tamr-iam?ref=v1.0.1"
+  source = "git::git@github.com:Datatamer/terraform-gcp-tamr-iam?ref=v1.1.0"
 
   project_id                = var.project_id
   tamr_service_account      = var.tamr_instance_service_account
