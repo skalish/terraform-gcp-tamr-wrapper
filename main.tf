@@ -20,7 +20,7 @@ locals {
 }
 
 module "iam" {
-  source = "git::git@github.com:Datatamer/terraform-gcp-tamr-iam?ref=v1.0.0"
+  source = "git::git@github.com:Datatamer/terraform-gcp-tamr-iam?ref=v1.0.1"
 
   project_id                = var.project_id
   tamr_service_account      = var.tamr_instance_service_account
@@ -89,7 +89,7 @@ module "tamr_vm" {
 }
 
 module "config" {
-  source = "git::git@github.com:Datatamer/terraform-gcp-tamr-config.git?ref=v1.0.1"
+  source = "git::git@github.com:Datatamer/terraform-gcp-tamr-config.git?ref=v1.0.2"
 
   # tamr VM
   tamr_instance_zone            = var.zone
