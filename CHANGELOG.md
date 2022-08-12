@@ -1,5 +1,8 @@
 # GCP Tamr Wrapper
 
+## v2.0.3 - August 12th 2022
+* updates patch versions of the config and IAM modules
+
 ## v2.0.2 - July 29th 2022
 * update config version to v1.0.1
 
