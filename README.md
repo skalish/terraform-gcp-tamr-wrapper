@@ -4,26 +4,10 @@ This repo is meant to be a functioning example of how to wire all of the tamr gc
 This repo follows the [terraform standard module structure](https://www.terraform.io/docs/modules/index.html#standard-module-structure).
 
 # Examples
-## Everything in a single project
-```
-module "tamr_stack" {
-  source = "git::git@github.com:Datatamer/terraform-gcp-tamr-vm.git?ref=v0.1.0"
-  deployment_name = "tamr-dev"
-  # tamr VM
-  tamr_zip_uri = "gs://tamr-releases/v2020.015.0/unify.zip"
-  tamr_instance_image = "your-project/ubuntu"
-  # bigtable config
-  tamr_bigtable_min_nodes   = 1
-  tamr_bigtable_max_nodes   = 10
-  # network
-  subnet_self_link = data.google_compute_subnetwork.project_subnet.self_link
-  region = "us-east1"
-  zone = "us-east1-b"
-  # misc
-  # this module will deploy all resources into this project
-  project_id = "your-project"
-}
-```
+## Minimal
+Smallest complete fully working example
+- [Minimal](https://github.com/Datatamer/terraform-gcp-tamr-wrapper/tree/master/examples/minimal)
+
 # Resources Created
 This modules creates:
 * Initializes all of the child tamr gcp terraform modules for deploying a tamr gcp deployment
